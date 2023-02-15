@@ -112,3 +112,27 @@ $('.slider-main_component').each(function (index) {
     slideDuplicateActiveClass: 'is-active',
   });
 });
+
+// ----------- //
+
+const signup = document.querySelector('.signup_component');
+const openBtn = document.getElementById('open-signup');
+const closeBtn = document.querySelector('.signup_close');
+const signupContent = document.querySelector('.signup_content');
+
+const openSignup = function () {
+  signup?.classList.toggle('is-init');
+  setTimeout(() => {
+    signup?.classList.toggle('is-active');
+  }, 100);
+};
+
+const closeSignup = function () {
+  signup?.classList.toggle('is-active');
+  setTimeout(() => {
+    signup?.classList.toggle('is-init');
+  }, 200);
+};
+
+openBtn?.addEventListener('click', openSignup);
+closeBtn.addEventListener('click', closeSignup);
