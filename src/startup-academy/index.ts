@@ -150,7 +150,8 @@ $('.slider-main_component').each(function (index) {
 // ----------- //
 
 const signup = document.querySelector('.signup_component');
-const openBtn = document.querySelectorAll('#open-signup');
+const openBtn = document.querySelectorAll('.open-signup');
+const openBtnArr = [...openBtn];
 const closeBtn = document.querySelector('.signup_close');
 const signupContent = document.querySelector('.signup_content');
 
@@ -168,5 +169,8 @@ const closeSignup = function () {
   }, 200);
 };
 
-openBtn?.addEventListener('click', openSignup);
+openBtnArr.forEach(function (item) {
+  item.addEventListener('click', openSignup);
+});
+
 closeBtn.addEventListener('click', closeSignup);
