@@ -150,7 +150,7 @@ $('.slider-main_component').each(function (index) {
 // ----------- //
 
 const signup = document.querySelector('.signup_component');
-const openBtn = document.getElementById('open-signup');
+const openBtn = document.querySelectorAll('#open-signup');
 const closeBtn = document.querySelector('.signup_close');
 const signupContent = document.querySelector('.signup_content');
 
