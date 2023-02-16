@@ -4,40 +4,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const players = Plyr.setup('#player', {
     controls: [
-      // "play-large", // The large play button in the center
+      'play-large', // The large play button in the center
       // 'restart', // Restart playback
       // 'rewind', // Rewind by the seek time (default 10 seconds)
-      //'play', // Play/pause playback
+      'play', // Play/pause playback
       // "fast-forward", // Fast forward by the seek time (default 10 seconds)
-      // "progress", // The progress bar and scrubber for playback and buffering
+      'progress', // The progress bar and scrubber for playback and buffering
       // "current-time", // The current time of playback
       // "duration", // The full duration of the media
       'mute', // Toggle mute
-      // 'volume', // Volume control
+      'volume', // Volume control
       // "captions", // Toggle captions
       // "settings", // Settings menu
       // "pip", // Picture-in-picture (currently Safari only)
       //'airplay', // Airplay (currently Safari only)
       // "download", // Show a download button with a link to either the current source or a custom URL you specify in your options
-      //'fullscreen', // Toggle fullscreen
+      'fullscreen', // Toggle fullscreen
     ],
-    clickToPlay: false,
+    clickToPlay: true,
+    autoplay: true,
+    muted: true,
+    fullscreen: {
+      iosNative: true,
+    },
+  });
+
+  const players2 = Plyr.setup('#player2', {
+    controls: [
+      'play-large', // The large play button in the center
+      // 'restart', // Restart playback
+      // 'rewind', // Rewind by the seek time (default 10 seconds)
+      'play', // Play/pause playback
+      // "fast-forward", // Fast forward by the seek time (default 10 seconds)
+      'progress', // The progress bar and scrubber for playback and buffering
+      // "current-time", // The current time of playback
+      // "duration", // The full duration of the media
+      'mute', // Toggle mute
+      'volume', // Volume control
+      //'captions', // Toggle captions
+      // 'settings', // Settings menu
+      // "pip", // Picture-in-picture (currently Safari only)
+      //'airplay', // Airplay (currently Safari only)
+      // "download", // Show a download button with a link to either the current source or a custom URL you specify in your options
+      'fullscreen', // Toggle fullscreen
+    ],
+    clickToPlay: true,
+    autoplay: false,
+    muted: false,
+    fullscreen: {
+      iosNative: true,
+    },
   });
 
   // Expose
   window.player = player;
 
-  const videoPlayer = document.querySelectorAll('.plyr');
+  // Play on hover:
 
-  //   videoPlayer.forEach((player, index) => {
-  //     player.addEventListener('mouseover', () => {
-  //       players[index].play();
-  //     });
+  // const videoPlayer = document.querySelectorAll('.plyr');
 
-  //     player.addEventListener('mouseleave', () => {
-  //       players[index].stop();
-  //     });
+  // videoPlayer.forEach((player, index) => {
+  //   player.addEventListener('mouseover', () => {
+  //     players[index].play();
   //   });
+
+  //   player.addEventListener('mouseleave', () => {
+  //     players[index].pause();
+  //   });
+  // });
 
   // Bind event listener
   function on(selector, type, callback) {

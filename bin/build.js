@@ -10,6 +10,7 @@ const ENTRY_POINTS = [
   'src/index.ts',
   'src/startup-academy/index.ts',
   'src/startup-academy/speakers.ts',
+  'src/startup-academy/videos.ts',
 ];
 
 // Config dev serving

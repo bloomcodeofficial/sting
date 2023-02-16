@@ -1,1 +1,42 @@
-"use strict";(()=>{var l=document.querySelectorAll(".speakers_item"),n=[...l],i=document.querySelector(".speakers_image"),u=document.querySelector(".speakers_selected-name"),p=document.querySelector(".speakers_selected-about"),d=document.querySelector(".speakers_selected-role"),r=function(e){var s,o,t,c;for(let a of n)a.classList.remove("is-active");e.classList.add("is-active"),u.innerHTML=(s=e.querySelector(".speakers_name"))==null?void 0:s.innerHTML,i.src=e.querySelector(".img").src,p.innerHTML=(o=e.querySelector(".speakers_about"))==null?void 0:o.innerHTML,d.innerHTML=`${(t=e.querySelector(".speakers_role"))==null?void 0:t.innerHTML} at ${(c=e.querySelector(".speakers_company"))==null?void 0:c.innerHTML}`},k=function(){r(n[0])};k();n.forEach(function(e){window.innerWidth<=991?e.addEventListener("tap",function(){r(e)}):e.addEventListener("mouseenter",function(){r(e)})});})();
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`http://localhost:${3e3}/esbuild`).addEventListener(
+    "change",
+    () => location.reload()
+  );
+
+  // src/startup-academy/speakers.ts
+  var speaker = document.querySelectorAll(".speakers_item");
+  var speakerArr = [...speaker];
+  var selSpeakerImg = document.querySelector(".speakers_image");
+  var selSpeakerName = document.querySelector(".speakers_selected-name");
+  var selSpeakerAbout = document.querySelector(".speakers_selected-about");
+  var selSpeakerRole = document.querySelector(".speakers_selected-role");
+  var changeSpeaker = function(item) {
+    for (const div of speakerArr) {
+      div.classList.remove("is-active");
+    }
+    item.classList.add("is-active");
+    selSpeakerName.innerHTML = item.querySelector(".speakers_name")?.innerHTML;
+    selSpeakerImg.src = item.querySelector(".img").src;
+    selSpeakerAbout.innerHTML = item.querySelector(".speakers_about")?.innerHTML;
+    selSpeakerRole.innerHTML = `${item.querySelector(".speakers_role")?.innerHTML} at ${item.querySelector(".speakers_company")?.innerHTML}`;
+  };
+  var initSpeaker = function() {
+    changeSpeaker(speakerArr[0]);
+  };
+  initSpeaker();
+  speakerArr.forEach(function(item) {
+    if (window.innerWidth <= 991) {
+      item.addEventListener("tap", function() {
+        changeSpeaker(item);
+      });
+    } else {
+      item.addEventListener("mouseenter", function() {
+        changeSpeaker(item);
+      });
+    }
+  });
+})();
+//# sourceMappingURL=speakers.js.map
