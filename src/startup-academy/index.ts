@@ -174,3 +174,24 @@ openBtnArr.forEach(function (item) {
 });
 
 closeBtn.addEventListener('click', closeSignup);
+
+// ----------- //
+
+const answers = [...document.querySelectorAll('.faq_answer')];
+const triggers = [...document.querySelectorAll('.faq_question')];
+
+const initAccord = function () {
+  for (const answer of answers) answer.classList.add('is-active');
+};
+
+for (const trigger of triggers) {
+  trigger.addEventListener('click', function () {
+    trigger.classList.toggle('is-active');
+    trigger.nextElementSibling?.classList.toggle('is-active');
+    trigger.lastElementChild?.classList.toggle('is-active');
+  });
+}
+
+initAccord();
+
+// console.log(triggers[0].nextElementSibling?.classList.toggle('is-init'));
