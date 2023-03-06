@@ -19,7 +19,7 @@ const changeSpeaker = function (item) {
   selSpeakerName.innerHTML = item.querySelector('.speakers_name')?.innerHTML;
   selSpeakerImg.src = item.querySelector('.img').src;
   selSpeakerAbout.innerHTML = item.querySelector('.speakers_about')?.innerHTML;
-  selSpeakerRole.innerHTML = `${item.querySelector('.speakers_role')?.innerHTML} at ${
+  selSpeakerRole.innerHTML = `${item.querySelector('.speakers_role')?.innerHTML} ${
     item.querySelector('.speakers_company')?.innerHTML
   }`;
 };
