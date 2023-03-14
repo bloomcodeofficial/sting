@@ -35,7 +35,7 @@ initSpeaker();
 // Call changeSpeaker function for each item hover
 speakerArr.forEach(function (item) {
   if (window.innerWidth <= 991) {
-    item.addEventListener('tap', function () {
+    item.addEventListener('touchend', function () {
       changeSpeaker(item);
     });
   } else {
